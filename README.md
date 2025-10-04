@@ -1,4 +1,4 @@
-# Cybersecurity Statistics Blog 
+# Cybersecurity Statistics Blog
 
 ## Overview
 
@@ -16,7 +16,7 @@ The blog fulfills the course requirement to create a public platform for sharing
 
 ## Structure 
 
-  - **Blog Posts**: Located in the _posts directory, each post is written in Markdown and follows the format YYYY-MM-DD-title.md. Posts are published using GitHub Pages and can be accessed at [https://username.github.io](https://username.github.io) (replace with your actual URL).
+  - **Blog Posts**: Located in the _posts directory, each post is written in Markdown and follows the format YYYY-MM-DD-title.md. Posts are published using GitHub Pages and can be accessed at (https://jxel1.github.io/Statistics-blog).
   
   - **Content**: Posts cover assigned topics, such as defining statistics, exploring its applications in cybersecurity, and analyzing datasets or case studies. Each post is structured with an introduction, detailed analysis, and conclusions.
 
@@ -24,12 +24,12 @@ The blog fulfills the course requirement to create a public platform for sharing
 
 ## How to Navigate 
 
-- Visit the blog at [https://username.github.io](https://username.github.io) to view all posts.
+- Visit the blog at (https://jxel1.github.io/Statistics-blog) to view all posts.
 
 - Browse individual posts by date or topic using the site’s navigation or the _posts directory. - Check the commit history for updates and new posts added throughout the course.
 
 ## About Me 
-I am a master’s student in Cybersecurity at Sapienza University of Rome, with a focus on leveraging statistical methods to enhance security practices. This blog reflects my coursework and growing expertise in data-driven cybersecurity solutions. 
+I am a master’s student in Cybersecurity at Sapienza University of Rome, with a focus on leveraging statistical methods to enhance security practices. This blog reflects my coursework and growning expertise in statistics. 
 
 ## Contact
 For questions or feedback related to the course or blog content, please contact me via email bitri.2240045@studenti.uniroma1.it
