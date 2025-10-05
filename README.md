@@ -1,6 +1,4 @@
----
-title: Statistics Homework Blog
----
+
 ## Overview
 
 This repository hosts my blog for the Statistics course, part of the Master’s program in Cybersecurity at Sapienza University of Rome. The blog serves as a platform to publish homework assignments, research projects, and other coursework related to the application of statistical methods in cybersecurity. Each post addresses specific topics assigned throughout the course, demonstrating the role of statistics in analyzing and mitigating cyber threats. 
