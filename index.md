@@ -37,4 +37,4 @@ I am a master’s student in Cybersecurity at Sapienza University of Rome, with 
 ## Contact
 For questions or feedback related to the course or blog content, please contact me via email bitri.2240045@studenti.uniroma1.it
 
-*Last updated: October 4, 2025*
+*Last updated: October 12, 2025*
