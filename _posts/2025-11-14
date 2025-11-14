@@ -1,0 +1,119 @@
+---
+layout: post
+title: "Homework 10: Simulating a Counting Process"
+date: 2025-11-14
+---
+
+
+
+This simulation approximates a **Poisson process** over a time interval \(T\) using a Bernoulli approximation. All computation and visualization run in the browser.
+
+## Simulation Approach
+
+- Divide the time interval \(T\) into \(n\) small subintervals.
+- Each subinterval generates an event with probability \(p = \lambda / n\).
+- Count events cumulatively and compute interarrival times.
+
+## JavaScript Implementation
+
+```html
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="cumulativeChart" width="800" height="400"></canvas>
+<canvas id="histChart" width="800" height="400"></canvas>
+
+<script>
+const T = 1;       // total time
+const n = 5000;    // number of subintervals
+const lambda = 3;  // rate parameter
+
+const p = lambda / n;  // probability of event in each subinterval
+
+// Simulate events
+let events = [];
+for (let i = 0; i < n; i++) {
+  events.push(Math.random() < p ? 1 : 0);
+}
+
+// Cumulative count
+let cumulative = [];
+let sum = 0;
+for (let i = 0; i < events.length; i++) {
+  sum += events[i];
+  cumulative.push(sum);
+}
+
+// Cumulative count chart
+const ctxCum = document.getElementById('cumulativeChart').getContext('2d');
+new Chart(ctxCum, {
+  type: 'line',
+  data: {
+    labels: Array.from({length: n}, (_, i) => (i * T / n).toFixed(4)),
+    datasets: [{
+      label: 'Cumulative Count',
+      data: cumulative,
+      borderColor: 'blue',
+      backgroundColor: 'rgba(0,0,255,0.1)',
+      fill: true,
+      pointRadius: 0,
+      tension: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: true } },
+    scales: {
+      x: { title: { display: true, text: 'Time' } },
+      y: { title: { display: true, text: 'Cumulative Count' } }
+    }
+  }
+});
+
+// Interarrival times
+let indices = events.map((e,i) => e === 1 ? i : -1).filter(i => i >= 0);
+let interarrival = [];
+for (let i = 1; i < indices.length; i++) {
+  interarrival.push((indices[i] - indices[i-1]) * T / n);
+}
+
+// Histogram bins
+function getBins(data, binCount) {
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const binWidth = (max - min) / binCount;
+  let bins = Array(binCount).fill(0);
+  data.forEach(v => {
+    let index = Math.min(Math.floor((v - min) / binWidth), binCount - 1);
+    bins[index]++;
+  });
+  let labels = Array.from({length: binCount}, (_, i) => (min + i * binWidth).toFixed(4));
+  return {bins, labels};
+}
+
+const {bins, labels} = getBins(interarrival, 30);
+
+// Histogram chart
+const ctxHist = document.getElementById('histChart').getContext('2d');
+new Chart(ctxHist, {
+  type: 'bar',
+  data: {
+    labels: labels,
+    datasets: [{
+      label: 'Interarrival Time Frequency',
+      data: bins,
+      backgroundColor: 'rgba(255,0,0,0.5)',
+      borderColor: 'red',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: true } },
+    scales: {
+      x: { title: { display: true, text: 'Interarrival Time' } },
+      y: { title: { display: true, text: 'Frequency' } }
+    }
+  }
+});
+</script>
